@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "level_completions",
+  "info": {
+    "singularName": "level-completion",
+    "pluralName": "level-completions",
+    "displayName": "LevelCompletion"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "completed": {
+      "type": "datetime",
+      "required": true
+    },
+    "level": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::level.level",
+      "inversedBy": "level_completions"
+    },
+    "user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "level_completions"
+    }
+  }
+}
